@@ -17,7 +17,6 @@ def search_objs(start_date: str, end_date: str, limit: int = 1) -> dict:  # res 
     objs = get_objs(start_date, end_date)
     for date in objs:
         d_objs = objs[date]
-        d_objs.sort(key=lambda obj: obj['absolute_magnitude_h'])
         res[date] = {}
         for obj in d_objs[:limit]:
             res[date][obj['neo_reference_id']] = {key: obj[key] for key in keys}
